@@ -12,5 +12,6 @@ def showpost(request, slug):
         post = Post.objects.get(slug = slug)
         if post != None:
             return render(request, 'post.html', locals())
-    except:
+    except Exception as e:
+        print(f'Error Msg:{e}')
         return redirect('/')
